@@ -1,13 +1,18 @@
 {
   "name": "backend-api-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Student Management API built with Node.js and Express.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest-api",
+    "backend"
+  ],
+  "author": "Yashoda Rani",
   "license": "ISC",
   "dependencies": {
     "express": "^5.2.1"
