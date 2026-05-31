@@ -11,4 +11,5 @@ app.get("/api/students", (req, res) => {
   ]);
 });
 
+// IMPORTANT: NO app.listen()
 export default app;
