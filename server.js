@@ -5,18 +5,25 @@ app.use(express.json());
 
 let students = [];
 
-// GET API
+// Home Route
+app.get("/", (req, res) => {
+  res.json({
+    message: "Student Management API is running successfully"
+  });
+});
+
+// GET Students
 app.get("/students", (req, res) => {
   res.json(students);
 });
 
-// POST API
+// POST Student
 app.post("/students", (req, res) => {
   const { name, age, course } = req.body;
 
   if (!name || !age || !course) {
     return res.status(400).json({
-      message: "All fields are required",
+      message: "All fields are required"
     });
   }
 
@@ -24,16 +31,18 @@ app.post("/students", (req, res) => {
     id: students.length + 1,
     name,
     age,
-    course,
+    course
   };
 
   students.push(student);
 
   res.status(201).json({
     message: "Student Added Successfully",
-    student,
+    student
   });
 });
+
+// DELETE Student
 app.delete("/students/:id", (req, res) => {
   const id = parseInt(req.params.id);
 
@@ -43,6 +52,9 @@ app.delete("/students/:id", (req, res) => {
     message: "Student Deleted Successfully"
   });
 });
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
