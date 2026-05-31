@@ -1,8 +1,8 @@
-export default function handler(req, res) {
-  const students = [
-    { id: 1, name: "yamini" },
-    { id: 2, name: "karthi" }
-  ];
+import express from "express";
+const app = express();
 
-  res.status(200).json(students);
-}
+app.get("/api/students", (req, res) => {
+  res.json([{ id: 1, name: "Ravi" }]);
+});
+
+export default app;
